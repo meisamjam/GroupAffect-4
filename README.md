@@ -16,8 +16,8 @@ Two Zenodo records are available:
 
 | Release | Size | Zenodo | Contents |
 |---------|------|--------|----------|
-| **Subset** (start here) | ~3.7 GB | <https://zenodo.org/records/20037847> | Physiology, ET (7/10 sessions), transcripts, behavioural, annotations — no audio WAV |
-| **Full** | ~30 GB | <https://zenodo.org/records/20037833> | Everything above + raw audio WAV (48 kHz) for all 10 sessions + ET all sessions |
+| **Subset** (start here) | ~3.7 GB | <https://zenodo.org/records/20037833> | Physiology, ET (7/10 sessions), transcripts, behavioural, annotations — no audio WAV |
+| **Full** | ~30 GB | <https://zenodo.org/records/20037847> | Everything above + raw audio WAV (48 kHz) for all 10 sessions + ET all sessions |
 
 Raw audio WAV files in the full release are Restricted access (Data Use Agreement). Request access on the Zenodo record page.
 

@@ -1,0 +1,13 @@
+INFO: Wrote results\rebuttal_level1\raw_protocol.tsv
+INFO: Wrote results\rebuttal_level1\raw_protocol.tex
+INFO: B0_task_classification / Task label (T1--T4) n=136  accuracy: base=0.265 lin=0.485 | macro_f1: base=0.105 lin=0.474
+INFO: B1_affective_binary / Valence (high/low) n=107  accuracy: base=0.636 lin=0.598 | macro_f1: base=0.389 lin=0.586 | roc_auc: base=nan lin=0.646
+INFO: B1_affective_binary / Arousal (high/low) n=107  accuracy: base=0.439 lin=0.589 | macro_f1: base=0.331 lin=0.581 | roc_auc: base=nan lin=0.575
+INFO: B2_dominance_binary / Dominance (high/low) n=83   accuracy: base=0.518 lin=0.651 | macro_f1: base=0.341 lin=0.651 | roc_auc: base=nan lin=0.673
+INFO: B3_cognitive_state / Engagement >= median n=99   accuracy: base=0.535 lin=0.566 | macro_f1: base=0.349 lin=0.563 | roc_auc: base=nan lin=0.575
+INFO: B3_cognitive_state / Mental demand >= median n=99   accuracy: base=0.545 lin=0.687 | macro_f1: base=0.353 lin=0.686 | roc_auc: base=nan lin=0.753
+INFO: B4_personality_binary / BFI Extraversion (high/low) n=32   accuracy: base=0.594 lin=0.500 | macro_f1: base=0.373 lin=0.482 | roc_auc: base=nan lin=0.462
+INFO: B4_personality_binary / BFI Openness (high/low) n=32   accuracy: base=0.594 lin=0.562 | macro_f1: base=0.373 lin=0.533 | roc_auc: base=nan lin=0.466
+INFO: B5_performance_binary / T4 Contribution (high/low) n=28   accuracy: base=0.500 lin=0.500 | macro_f1: base=0.333 lin=0.490 | roc_auc: base=nan lin=0.378
+INFO: B6_speaking_balance / Speaking-fraction Gini (group- n=38   rmse: base=0.107 lin=0.120 | mae: base=0.086 lin=0.092 | pearson_r: base=nan lin=-0.019
+INFO: B7_overlap_balance / Overlap fraction (group-task m n=38   rmse: base=0.079 lin=0.066 | mae: base=0.060 lin=0.052 | pearson_r: base=nan lin=0.560

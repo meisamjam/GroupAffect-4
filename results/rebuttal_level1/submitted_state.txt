@@ -1,0 +1,5 @@
+Submitted repository version previously inspected: c6d96dcf7a957e8b4761ef5b40ee5e813a4da492
+Local HEAD at rebuttal rerun: 2d01b93f5a12c15b18009dd66cce95b36a7049d3
+Python: 3.13.11
+Local HEAD differs from the previously inspected submitted version.
+The worktree already contained numerous untracked files; no reset or overwrite was performed.

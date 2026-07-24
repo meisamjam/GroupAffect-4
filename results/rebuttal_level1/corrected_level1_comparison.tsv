@@ -1,0 +1,9 @@
+benchmark	submitted_result	corrected_result	valid_folds	interpretation
+B0 task	0.641 (SD 0.132), 95% CI [0.55, 0.73]	0.450 (SD 0.134), 95% CI [0.375, 0.525]	10/10	Weakened; above four-class chance, but the submitted estimate was substantially inflated.
+B1a valence	0.657 (SD 0.110), 95% CI [0.58, 0.73]	0.595 (SD 0.100), 95% CI [0.529, 0.645]	10/10	Retained but weakened; modest discrimination with uncertainty from ten groups.
+B1b arousal	0.528 (SD 0.114), 95% CI [0.45, 0.60]	0.686 (SD 0.170), 95% CI [0.584, 0.783]	10/10	Supported in this corrected diagnostic, but fold variability is substantial.
+B2 dominance	0.499 (SD 0.186), 95% CI [0.37, 0.62]	0.656 (SD 0.265), 95% CI [0.504, 0.812]	10/10	Tentative; large fold variability makes this unsuitable as a strong predictive claim.
+B3a mental demand	0.719 (SD 0.142), 95% CI [0.62, 0.81]	0.801 (SD 0.125), 95% CI [0.718, 0.878]	8/10	Retained; strongest and most stable corrected Level-1 result, with only eight eligible groups.
+B3b engagement	0.591 (SD 0.136), 95% CI [0.50, 0.69]	0.631 (SD 0.119), 95% CI [0.554, 0.708]	8/10	Retained as tentative feasibility evidence; only eight eligible groups.
+B3c satisfaction	0.571 (SD 0.213), 95% CI [0.419, 0.733]	0.743 (SD 0.174), 95% CI [0.610, 0.848]	7/10	Tentative; only seven held-out groups have both classes and the target exists in eight groups.
+B3d trust	0.562 (SD 0.221), 95% CI [0.406, 0.711]	0.727 (SD 0.269), 95% CI [0.547, 0.883]	8/10	Tentative; high fold variability and only eight eligible groups preclude a strong claim.

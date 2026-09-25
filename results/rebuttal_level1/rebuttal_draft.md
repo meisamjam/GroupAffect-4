@@ -1,3 +1,5 @@
+> **Archive note (2026-09-25).** The text below is the original July 2026 rebuttal draft, retained as written for provenance. Its B0 “submitted” comparator of 0.641 conflicts with the 0.734 originally published in this repository's README; their relationship is unverified. Its final paragraph describes the state at the time of drafting: this PR now updates repository documentation. Use the corrected results and caveats in the root README for the current public summary.
+
 We thank the reviewers and AC for identifying the preprocessing concern. We reran all
 Level-1 benchmarks locally under a corrected group-disjoint protocol. The submitted
 within-participant normalization did not mix training participants with held-out-group

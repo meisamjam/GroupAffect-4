@@ -1,0 +1,8 @@
+2026-07-24 14:49:38,376 INFO B0 accuracy mean=0.450 SD=0.134 valid=10/10
+2026-07-24 14:49:38,691 INFO B1a roc_auc mean=0.595 SD=0.100 valid=10/10
+2026-07-24 14:49:38,998 INFO B1b roc_auc mean=0.686 SD=0.170 valid=10/10
+2026-07-24 14:49:39,298 INFO B2 roc_auc mean=0.656 SD=0.265 valid=10/10
+2026-07-24 14:49:39,568 INFO B3a roc_auc mean=0.801 SD=0.125 valid=8/10
+2026-07-24 14:49:39,839 INFO B3b roc_auc mean=0.631 SD=0.119 valid=8/10
+2026-07-24 14:49:40,101 INFO B3c roc_auc mean=0.743 SD=0.174 valid=7/10
+2026-07-24 14:49:40,361 INFO B3d roc_auc mean=0.727 SD=0.269 valid=8/10

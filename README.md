@@ -145,7 +145,7 @@ Each script accepts `--data-root`, `--features-dir`, and `--out-dir`. Run with `
 
 ## Step 3 — Benchmarks (`benchmarks/`)
 
-Reproduce the 8 benchmark baselines (B0–B7) from paper §5.
+Reproduce the originally published B0–B7 baselines from paper §5. The corrected Level-1 diagnostic below is a separate analysis.
 
 ```bash
 python benchmarks/run_neurips_benchmark_baselines.py \
@@ -157,7 +157,8 @@ python benchmarks/benchmark_no_biomarkers.py
 
 | Script | What it produces |
 |--------|-----------------|
-| `benchmark_no_biomarkers.py` | **Main results** — B0–B7 with bootstrap 95% CIs (35 features, LOGO-CV) |
+| `benchmark_no_biomarkers.py` | **Original paper results** — B0–B7 with bootstrap 95% CIs (35 features, LOGO-CV) |
+| `rebuttal_level1_corrected.py` | Corrected Level-1 diagnostic, fold metrics, and predictions (B0–B3d only) |
 | `benchmark_additions.py` | Additional benchmark variants and ablations |
 | `feature_importance.py` | Ranked feature importance figure |
 | `fold_variance.py` / `fold_variance2.py` | Fold-level variance diagnostics |
@@ -237,7 +238,35 @@ python run_all_paper_analyses.py \
 
 ---
 
-## Benchmark Summary (paper §5)
+## Benchmark results and provenance
+
+### Corrected Level-1 diagnostic (PR #2)
+
+The following rerun uses T0-delta physiology/pupil measures and absolute current-task audio features. It splits by group, then fits feature filtering, clipping, KNN imputation, scaling, and binary target thresholds on training groups within each fold. The model is fixed logistic regression (`C=1`); no hyperparameter search is reported. Scores are unweighted means across held-out groups, with across-fold SD.
+
+| ID | Target | Metric | Mean ± fold SD | Valid folds |
+|----|--------|--------|----------------|-------------|
+| B0 | Task classification (T1–T4) | Accuracy | 0.450 ± 0.134 | 10/10 |
+| B1a | Valence (high/low) | AUC | 0.595 ± 0.100 | 10/10 |
+| B1b | Arousal (high/low) | AUC | 0.686 ± 0.170 | 10/10 |
+| B2 | Dominance (high/low) | AUC | 0.656 ± 0.265 | 10/10 |
+| B3a | Mental demand (high/low) | AUC | 0.801 ± 0.125 | 8/10 |
+| B3b | Engagement (high/low) | AUC | 0.631 ± 0.119 | 8/10 |
+| B3c | Satisfaction (T2/T3; high/low) | AUC | 0.743 ± 0.174 | 7/10 |
+| B3d | Mean seat-directed trust (T2/T4; high/low) | AUC | 0.727 ± 0.269 | 8/10 |
+
+Ten group splits were attempted for each target. B3a, B3b, and B3d have eight eligible groups; B3c has eight eligible groups but one additional held-out fold with a single target class, where AUC is undefined. The [summary](results/rebuttal_level1/corrected_level1_summary.tsv), [fold metrics](results/rebuttal_level1/corrected_level1_folds.tsv), and [runner](benchmarks/rebuttal_level1_corrected.py) specify the exact calculation. The fold-bootstrap intervals in the summary are descriptive resampling intervals over only 7–10 evaluable groups; they should not be read as precise population-level uncertainty.
+
+Run the diagnostic after generating its input tables (the repository does not include the raw analysis tables):
+
+```bash
+python benchmarks/rebuttal_level1_corrected.py --help
+python benchmarks/rebuttal_level1_corrected.py
+```
+
+These are local pilot diagnostics, not a replacement for all of the paper's B0–B7 results. The feature set, eligible rows, and protocol differ from the original analysis, so differences between individual scores do not isolate the effect of the preprocessing correction. B3a is the strongest result in this small suite; B2, B3c, and B3d show substantial fold variability or reduced coverage. No external validation is reported.
+
+### Originally published benchmark summary (paper §5; archival)
 
 | ID | Target | Metric | Score |
 |----|--------|--------|-------|
@@ -252,4 +281,6 @@ python run_all_paper_analyses.py \
 | B6 | Speaking Gini | MAE | 0.089 |
 | B7 | Speech overlap | MAE | 0.063 |
 
-All baselines use leave-one-group-out cross-validation (LOGO-CV, split key: `group_id`). B0–B3 apply within-person z-scoring before the CV split and are documented as biased characterisation estimates in the paper (see §4).
+These are the values originally displayed in this README at main commit `c6d96dcf7a957e8b4761ef5b40ee5e813a4da492`; they are retained for provenance, not offered as leakage-free estimates. The original B0–B3 preprocessing uses within-person z-scoring across active tasks before the group split, so earlier tasks can depend on a participant's later tasks. Global winsorization and feature selection also precede cross-validation, although the baseline runner fits KNN imputation inside each training fold. This is a future-looking/transductive concern within participants; it does not imply that training groups used held-out participants' normalization statistics.
+
+The initial PR's [comparison table](results/rebuttal_level1/corrected_level1_comparison.tsv) records B0 as 0.641 in its historical comparator, whereas this README's originally published B0 is 0.734. The repository does not establish why those historical values differ. Do not treat that comparison table as a direct before/after estimate of leakage or silently substitute its historical values for the published table.
